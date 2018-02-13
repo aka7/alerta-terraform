@@ -1,9 +1,8 @@
-![Alt text](terraform_472.png?raw=true)
 # Setting up single instance alerta for quick demo testing on aws
 
 In my example, we are going to setup and launch one AWS EC2 instance which configures alerta. Please read the Pre-requisites below and make sure you are happy to proceed.
 
-This example demostrates use of terrform, with userdata with terrofrm, recodring the instance details in consul and finally doing a puppet run to configure alerta.
+This example demostrates use of terrform, providing details withuserdata, recodring the instance details in consul and finally doing a puppet run to configure alerta.
 
 The end of the run, you should able get to http://<EC2_PUBLIC_DNS>
 
