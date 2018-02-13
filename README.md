@@ -22,7 +22,7 @@ The end of the run, you should able get to http://<EC2_PUBLIC_DNS>
 ## Now on your server (where you have installed Terraform)
 
 Setup your credentails for using aws
-  * set the credential sources. one way is to set it in .aws/credentials files
+  * set the credential sources. one way is to set it in .aws/credentials file
 
 ```
 cat ~/.aws/credentials
@@ -38,7 +38,7 @@ Take a copy of my git repo. It contains all the files you need for this example.
 ```
 $ git clone https://github.com/aka7/alerta-terraform.git 
 $ cd alerta-terraform
-$ terrform init 
+$ terraform init 
 ```
 
 Make the following changes to these files in the code you have cloned from me in Git:
