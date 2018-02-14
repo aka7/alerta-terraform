@@ -2,7 +2,7 @@
 
 In my example, we are going to setup and launch one AWS EC2 instance which configures alerta. Please read the Pre-requisites below and make sure you are happy to proceed.
 
-This example demostrates use of terrform, providing details with userdata, recording the instance details in consul (demo site, demo.consul.io) and finally doing a puppet run to configure alerta.
+This example demostrates use of terraform, providing details with userdata, recording the instance details in consul (demo site, demo.consul.io) and finally doing a puppet run to configure alerta.
 
 The end of the run, you should able get to http://<EC2_PUBLIC_DNS>
 
@@ -15,9 +15,9 @@ The end of the run, you should able get to http://<EC2_PUBLIC_DNS>
 3. Some basic knowledge of AWS.
   * Creating and download your key pair (.pem file). [link](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html)
   * Create your Access key and access secret (one time creation). [link](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey)
-  * Check your default default, this example will use your default vpc.
-  * Familiarity with the AWS console.
-  * basice knowlege of alerta. [link] (http://alerta.io/)
+  * Check your default vpc, this example will use your default vpc.
+  * Familiarity with the AWS console and [aws clil](https://aws.amazon.com/cli/)
+  * basic knowlege of alerta. [link] (http://alerta.io/)
   * AWS training - I recommend Ryan Kroonemburg on Udemy. [link](https://www.udemy.com/user/ryankroonenburg/)
 
 ## Now on your host (where you have installed Terraform)
