@@ -128,7 +128,7 @@ $ alerta send --resource net01 --event down --severity critical --environment De
 ```
 
 Note that the above can be shortened by using argument flags instead of the full argument names:
-
+```
 $ alerta send -r net01 -e down -s critical -E Code -S Network -t 'net01 is down.'
 ```
 
