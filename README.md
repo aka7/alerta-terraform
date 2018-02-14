@@ -20,7 +20,7 @@ The end of the run, you should able get to http://<EC2_PUBLIC_DNS>
   * basice knowlege of alerta. [link] (http://alerta.io/)
   * AWS training - I recommend Ryan Kroonemburg on Udemy. [link](https://www.udemy.com/user/ryankroonenburg/)
 
-## Now on your server (where you have installed Terraform)
+## Now on your host (where you have installed Terraform)
 
 Setup your credentails for using aws
   * set the credential sources. one way is to set it in .aws/credentials file
