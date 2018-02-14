@@ -135,6 +135,6 @@ $ alerta send -r net01 -e down -s critical -E Code -S Network -t 'net01 is down.
 more details of alerta docs can be found here [http://docs.alerta.io/en/latest/design.html](http://docs.alerta.io/en/latest/design.html)
 
 ## NOTES on consul:
-This exmaple just demostrates use of consul provider in terraform, using the demo consul endpoint. If you have your own consul setup, then change the details in main.tf to point to your own consul endpoint. Goal here is set the alerta end point, so when launching other instances, we can retrieve the end point address using consul to know where to send our alerts to. 
+This example just demostrates use of consul provider in terraform, using the demo consul endpoint. If you have your own consul setup, then change the details in main.tf to point to your own consul endpoint. Goal here is set the alerta end point, so when launching other instances, we can retrieve the end point address using consul to know where to send our alerts to. 
 Example is purely to show how one can do service discovery using consul.
 
