@@ -1,10 +1,11 @@
-# Setting up single instance alerta for quick demo testing on aws
+# Setting up single instance alerta for quick demo on aws, for testing purpose only
 
 In my example, we are going to setup and launch one AWS EC2 instance which configures alerta. Please read the Pre-requisites below and make sure you are happy to proceed.
 
-This example demostrates use of terrform, providing details withuserdata, recodring the instance details in consul and finally doing a puppet run to configure alerta.
+This example demostrates use of terrform, providing details with userdata, recording the instance details in consul (demo site, demo.consul.io) and finally doing a puppet run to configure alerta.
 
 The end of the run, you should able get to http://<EC2_PUBLIC_DNS>
+
 
 ---
 ## Pre-Requisites:
@@ -31,6 +32,12 @@ aws_access_key_id =
 aws_secret_access_key =
 ```
 I find it easier to keep this seperate so I dont commit the keys in git.
+
+Or if you have awscli installed, run  configure to set your keys 
+```
+aws configure
+
+```
 
 
 Take a copy of my git repo. It contains all the files you need for this example.
@@ -60,5 +67,10 @@ $ terraform  plan
 $ terraform apply
 ```
 
-alerta should be ready to be tested at http://public_dns/
+alerta should be ready to be tested at http://<EC2_PUBLIC_DNS>
+
+
+NOTES on consul:
+This exmaple just demostrates use of consul provider in terraform, using the demo consul endpoint. If you have your own consul setup, then change the details in main.tf to point to your own consul endpoint. Goal here is set the alerta end point, so when launching other instances, we can retrieve the end point address using consul to know where to send our alerts to. 
+Example is purely to show how one can do service discovery using consul.
 
