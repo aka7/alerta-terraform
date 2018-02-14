@@ -33,7 +33,7 @@ aws_secret_access_key =
 ```
 I find it easier to keep this seperate so I dont commit the keys in git.
 
-Or if you have awscli [link] (https://aws.amazon.com/cli/)  installed, run  configure to set your keys 
+Or if you have [aws clil](https://aws.amazon.com/cli/)  installed, run  configure to set your keys 
 ```
 aws configure
 
