@@ -23,7 +23,7 @@ The end of the run, you should able get to http://<EC2_PUBLIC_DNS>
 ## Now on your host (where you have installed Terraform)
 
 Setup your credentails for using aws
-  * set the credential sources. one way is to set it in .aws/credentials file
+  * set the credential sources. one way is to set it in .aws/credentials file, shown below.
 
 ```
 cat ~/.aws/credentials
@@ -31,9 +31,9 @@ cat ~/.aws/credentials
 aws_access_key_id = 
 aws_secret_access_key =
 ```
-I find it easier to keep this seperate so I dont commit the keys in git.
+It is recommended to keep your keys outside the git repo's so you dont commit the keys into git by mistake.
 
-Or if you have [aws clil](https://aws.amazon.com/cli/)  installed, run  configure to set your keys 
+Or if you have [aws clil](https://aws.amazon.com/cli/)  installed, run configure to set your keys, which will create the file for you.
 ```
 aws configure
 
