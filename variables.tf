@@ -1,4 +1,5 @@
-variable "ssh_key_name" { default = "YOUR_KEYPAIR_NAME" }
+variable "ssh_key_name" { default = "akarim_ssh_akait" }
+variable "consul_id" { default = "aka_alerta_demo" }
 
 variable "aws_region" {
     default = "eu-west-1"

@@ -22,7 +22,7 @@ The end of the run, you should able get to http://<EC2_PUBLIC_DNS>
 
 ## Now on your host (where you have installed Terraform)
 
-Setup your credentails for using aws
+### Step 1 - Setup your credentails for using aws
   * set the credential sources. one way is to set it in .aws/credentials file, shown below.
 
 ```
@@ -40,7 +40,8 @@ aws configure
 ```
 
 
-Take a copy of my git repo. It contains all the files you need for this example.
+### Step 2 - Take a copy of my git repo. 
+It contains all the files you need for this example.
 
 ```
 $ git clone https://github.com/aka7/alerta-terraform.git 
@@ -48,7 +49,8 @@ $ cd alerta-terraform
 $ terraform init 
 ```
 
-Make the following changes to these files in the code you have cloned from me in Git:
+### Step 3  - Make variable changes to suit your environment
+Make the following changes to these files in the code you have cloned:
 
 Set the ssh keypair name in varibales.tf
 
@@ -61,6 +63,32 @@ If you need to set region, amis etc, in variables.tf, or use default, eu-west-1.
 
 NOTE: if you change ami id, make sure its ubuntu ami for this example to work.
 
+For ssh to work, do the following.  
+symlink or name your private ssh key pem file to my_aws_key.pem, I have the private key in ~/.aws dir.  ( This the private key part of your keypair name you using in ssh_key_name variable above. )
+
+simplist is to just symlink it.  (or you can update the main.tf to set it to path of your .pem file)
+
+```
+ln -s ~/.aws/akarim_ssh.pem ~/.aws/my_aws_key.pem
+
+```
+
+You can also add your own public key(s) in user_data file, alerta_data.conf, in section ssh_authorized_keys:, replace <ADDITONAL PUBKEYS> with your pubkey.
+
+```
+vi alerta_data.conf 
+....
+
+ssh_authorized_keys:
+  - ssh-rsa <ADDITONAL PUBKEYS>
+```
+
+Change consul id to avoid clash, set the consul_id to be unque to you, to avoid clash with someone else running this same time as you.
+
+```
+variable "consul_id" { default = "aka_alerta_demo" }
+```
+### Step 4 - Run to launch the instance
 Run plan and apply when ready
 ```
 $ terraform  plan
@@ -69,13 +97,13 @@ $ terraform apply
 
 alerta should be ready to be tested at http://<EC2_PUBLIC_DNS>
 
-(need to wait 2 min or so, for cloud-init to complete the post installation tasks)
+you can also go to demo.consul.io to view the key that has been created in consul demo site. Remember this is demo site, so keys get reset back to default after a while.
 
 TODO: 
 
 Add hook in terraform to wait for cloud-init run to complete.
 
-## Send test Alert to alerta
+### Step 5 - Send test Alert to alerta
 To send alert to the newly created instance.
 
 Download alerta command-line tool.

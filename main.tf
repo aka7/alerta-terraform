@@ -50,6 +50,18 @@ resource "aws_instance" "alerta" {
     key_name        = "${var.ssh_key_name}"
     user_data = "${data.template_file.user_data.rendered}"
 
+    connection {
+      type = "ssh"
+      user = "ubuntu"
+      private_key = "${file("~/.aws/my_aws_key.pem")}"
+      timeout = "2m"
+      agent = false
+    }
+    provisioner "remote-exec" {
+      inline = [
+        "while [ ! -f /var/lib/cloud/instance/boot-finished ]; do echo 'waiting on cloud-init run to complete...'; sleep 2; done",
+      ]
+  }
 }
 
 # Setup a key in Consul to store the instance id and
@@ -57,14 +69,14 @@ resource "aws_instance" "alerta" {
 resource "consul_keys" "alerta" {
   key {
     name   = "id"
-    path   = "alerta_demo/id"
+    path   = "${var.consul_id}/id"
     value  = "${aws_instance.alerta.id}"
     delete = true
   }
 
   key {
     name   = "address"
-    path   = "alerta_demo/public_dns"
+    path   = "${var.consul_id}/public_dns"
     value  = "${aws_instance.alerta.public_dns}"
     delete = true
   }
