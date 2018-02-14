@@ -69,8 +69,44 @@ $ terraform apply
 
 alerta should be ready to be tested at http://<EC2_PUBLIC_DNS>
 
+(need to wait 2 min or so, for cloud-init to complete the post installation tasks)
 
-NOTES on consul:
+TODO: 
+
+Add hook in terraform to wait for cloud-init run to complete.
+
+## Send test Alert to alerta
+To send alert to the newly created instance.
+
+Download alerta command-line tool.
+
+```
+pip install alerta
+```
+To use the command-line tool to submit a test alert you first need to create a configuration file that defines what API endpoint to use: This set to your newly created instance.
+
+```
+vi $HOME/.alerta.conf
+[DEFAULT]
+endpoint = http://<EC2_PUBLIC_DNS>/api
+
+```
+
+Send a test “critical” alert and confirm it has been received by viewing it in the web console:
+
+```
+$ alerta send --resource net01 --event down --severity critical --environment Development --service Network --text 'net01 is down.'
+
+```
+
+Note that the above can be shortened by using argument flags instead of the full argument names:
+
+$ alerta send -r net01 -e down -s critical -E Code -S Network -t 'net01 is down.'
+```
+
+more details of alerta docs can be found here [http://docs.alerta.io/en/latest/design.html](http://docs.alerta.io/en/latest/design.html)
+
+## NOTES on consul:
 This exmaple just demostrates use of consul provider in terraform, using the demo consul endpoint. If you have your own consul setup, then change the details in main.tf to point to your own consul endpoint. Goal here is set the alerta end point, so when launching other instances, we can retrieve the end point address using consul to know where to send our alerts to. 
 Example is purely to show how one can do service discovery using consul.
 
