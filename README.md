@@ -17,8 +17,8 @@ The end of the run, you should able get to http://<EC2_PUBLIC_DNS>
   * Create your Access key and access secret (one time creation). [link](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey)
   * Check your default vpc, this example will use your default vpc.
   * Familiarity with the AWS console and [aws clil](https://aws.amazon.com/cli/)
-  * basic knowlege of alerta. [link](http://alerta.io/)
   * AWS training - I recommend Ryan Kroonemburg on Udemy. [link](https://www.udemy.com/user/ryankroonenburg/)
+4. basic knowlege of alerta. [link](http://alerta.io/)
 
 ## Now on your host (where you have installed Terraform)
 
