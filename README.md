@@ -64,7 +64,7 @@ If you need to set region, amis etc, in variables.tf, or use default, eu-west-1.
 NOTE: if you change ami id, make sure its ubuntu ami for this example to work.
 
 For ssh to work, do the following.  
-symlink or name your private ssh key pem file to my_aws_key.pem, I have the private key in ~/.aws dir.  ( This the private key part of your keypair name you using in ssh_key_name variable above. )
+symlink or name your private ssh key pem file to my_aws_key.pem, I have the private key in ~/.aws dir.  ( This the private key part of your keypair name you're using in ssh_key_name variable above. )
 
 simplist is to just symlink it.  (or you can update the main.tf to set it to path of your .pem file)
 
