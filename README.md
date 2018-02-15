@@ -139,7 +139,7 @@ This example just demostrates use of consul provider in terraform, using the dem
 Example is purely to show how one can do service discovery using consul.
 
 ## References
-* [https://www.alerta.io/](https://www.alerta.io/)]
-* [https://www.consul.io/](https://www.consul.io/)]
+* [https://www.alerta.io/](https://www.alerta.io/)
+* [https://www.consul.io/](https://www.consul.io/)
 * [https://www.terraform.io/](https://www.terraform.io/)
 
