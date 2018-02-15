@@ -80,7 +80,7 @@ vi alerta_data.conf
 ....
 
 ssh_authorized_keys:
-  - ssh-rsa <ADDITONAL PUBKEYS>
+  - ssh-rsa <ADDITIONAL PUBKEYS>
 ```
 
 Change consul id to avoid clash, set the consul_id to be unque to you, to avoid clash with someone else running this same time as you.
