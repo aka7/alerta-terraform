@@ -68,14 +68,12 @@ resource "aws_instance" "alerta" {
 # the DNS name of the instance
 resource "consul_keys" "alerta" {
   key {
-    name   = "id"
     path   = "${var.consul_id}/id"
     value  = "${aws_instance.alerta.id}"
     delete = true
   }
 
   key {
-    name   = "address"
     path   = "${var.consul_id}/public_dns"
     value  = "${aws_instance.alerta.public_dns}"
     delete = true
