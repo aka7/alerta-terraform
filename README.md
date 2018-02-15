@@ -138,3 +138,8 @@ more details of alerta docs can be found here [http://docs.alerta.io/en/latest/d
 This example just demostrates use of consul provider in terraform, using the demo consul endpoint. If you have your own consul setup, then change the details in main.tf to point to your own consul endpoint. Goal here is set the alerta end point, so when launching other instances, we can retrieve the end point address using consul to know where to send our alerts to. 
 Example is purely to show how one can do service discovery using consul.
 
+## References
+* [https://www.alerta.io/](https://www.alerta.io/)]
+* [https://www.consul.io/](https://www.consul.io/)]
+* [https://www.terraform.io/](https://www.terraform.io/)
+
