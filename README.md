@@ -66,10 +66,13 @@ NOTE: if you change ami id, make sure its ubuntu ami for this example to work.
 For ssh to work, do the following.  
 symlink or name your private ssh key pem file to my_aws_key.pem, I have the private key in ~/.aws dir.  ( This the private key part of your keypair name you're using in ssh_key_name variable above. )
 
-simplist is to just symlink it.  (or you can update the main.tf to set it to path of your .pem file)
+simplist is to just symlink it.  (or you can update key_path in variables.tf to set it to path of your .pem file)
 
 ```
-ln -s ~/.aws/akarim_ssh.pem ~/.aws/my_aws_key.pem
+$ln -s ~/.aws/akarim_ssh.pem ~/.aws/my_aws_key.pem
+
+$grep key_path variables.tf 
+variable "key_path" { default = "~/.aws/my_aws_key.pem" }
 
 ```
 

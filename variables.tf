@@ -1,4 +1,5 @@
 variable "ssh_key_name" { default = "YOUR_KEYPAIR_NAME" }
+variable "key_path" { default = "~/.aws/my_aws_key.pem" }
 variable "consul_id" { default = "aka_alerta_demo" }
 
 variable "aws_region" {

@@ -53,7 +53,7 @@ resource "aws_instance" "alerta" {
     connection {
       type = "ssh"
       user = "ubuntu"
-      private_key = "${file("~/.aws/my_aws_key.pem")}"
+      private_key = "${file("${var.key_path}")}"
       timeout = "2m"
       agent = false
     }
