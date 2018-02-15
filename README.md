@@ -99,10 +99,6 @@ alerta should be ready to be tested at http://<EC2_PUBLIC_DNS>
 
 you can also go to demo.consul.io to view the key that has been created in consul demo site. Remember this is demo site, so keys get reset back to default after a while.
 
-TODO: 
-
-Add hook in terraform to wait for cloud-init run to complete.
-
 ### Step 5 - Send test Alert to alerta
 To send alert to the newly created instance.
 
