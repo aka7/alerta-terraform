@@ -1,19 +1,28 @@
-
-# Setup the Consul provisioner to use the demo cluster
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# DEPLOY SINGLE ALERTA INSTANCE
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+# USE DEMO CONSUL SITE
+#
 provider "consul" {
   address    = "demo.consul.io:80"
   datacenter = "nyc3"
 }
 
-# user user_data to install and confgure alerta
+# usr user_data to install and confgure alerta
 data "template_file" "user_data" {
   template = "${file("${path.module}/alerta_data.conf")}"
 }
 
+#
+# CONFIGURE OUR AWS CONNECTION
+#
 provider "aws" {
     region = "${var.aws_region}"
 }
 
+# CREATE SECURITY GROUP THAT IS APPLIED TO THE INSTANCE
+#
 resource "aws_security_group" "ssh_alerta" {
   name = "ssh_alerta"
   description = "Alerta secruity group"
@@ -41,6 +50,9 @@ resource "aws_security_group" "ssh_alerta" {
   }
 }
 
+#
+# DEPLOY EC2 INSTANCE
+#
 resource "aws_instance" "alerta" {
     ami             = "${lookup(var.aws_amis, var.aws_region)}"
     instance_type   = "t2.micro"
@@ -64,8 +76,10 @@ resource "aws_instance" "alerta" {
   }
 }
 
+#
 # Setup a key in Consul to store the instance id and
 # the DNS name of the instance
+#
 resource "consul_keys" "alerta" {
   key {
     path   = "${var.consul_id}/id"
@@ -75,6 +89,11 @@ resource "consul_keys" "alerta" {
 
   key {
     path   = "${var.consul_id}/public_dns"
+    value  = "${aws_instance.alerta.public_dns}"
+    delete = true
+  }
+  key {
+    path   = "${var.consul_id}/monitor_server"
     value  = "${aws_instance.alerta.public_dns}"
     delete = true
   }
