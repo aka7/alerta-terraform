@@ -1,4 +1,4 @@
-# Setting up single instance alerta for quick demo on aws, for testing purpose only
+# Setting up single instance of alerta for quick demo on aws, for testing purpose only
 
 In my example, we are going to setup and launch one AWS EC2 instance which configures alerta. Please read the Pre-requisites below and make sure you are happy to proceed.
 
@@ -19,6 +19,8 @@ The end of the run, you should able get to http://<EC2_PUBLIC_DNS>
   * Familiarity with the AWS console and [aws clil](https://aws.amazon.com/cli/)
   * AWS training - I recommend Ryan Kroonemburg on Udemy. [link](https://www.udemy.com/user/ryankroonenburg/)
 4. basic knowlege of alerta. [link](http://alerta.io/)
+
+Note: These examples deploy resources into your AWS account. Although all the resources should fall under the AWS Free Tier, it is not my responsibility if you are charged money for this.
 
 ## Now on your host (where you have installed Terraform)
 
