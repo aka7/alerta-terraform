@@ -9,9 +9,9 @@ provider "consul" {
   datacenter = "nyc3"
 }
 
-# usr user_data to install and confgure alerta
+# usr user_data to run post install configs, such as install and confgure alerta
 data "template_file" "user_data" {
-  template = "${file("${path.module}/alerta_data.conf")}"
+  template = "${file("${path.module}/alerta_data.yml")}"
 }
 
 #

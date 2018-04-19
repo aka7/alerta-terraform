@@ -1,4 +1,4 @@
-variable "ssh_key_name" { default = "YOUR_KEYPAIR_NAME" }
+variable "ssh_key_name" { default = "akarim_ssh_akait" }
 variable "key_path" { default = "~/.aws/my_aws_key.pem" }
 variable "consul_id" { default = "aka_alerta_demo" }
 
