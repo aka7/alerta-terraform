@@ -117,6 +117,8 @@ To use the command-line tool to submit a test alert you first need to create a c
 
 To use consul KV id created by terraform, just run below command (need curl,python and base64 util installed), you can run this from anywhere.
 
+This will send a major alerta to the alertsa instance we just created, getting the alerta endpoint from consul.
+
 ```
 alerta --endpoint-url=http://$(curl -s https://demo.consul.io/v1/kv/aka_alerta_demo/monitor_server | python -c 'import sys, json; print json.load(sys.stdin)[0]["Value"]'|base64 --decode)/api send -r web01 -e NodeDown -E Production -S Website -s major -t "Web server is down." -v ERROR
 ```
@@ -124,9 +126,10 @@ alerta --endpoint-url=http://$(curl -s https://demo.consul.io/v1/kv/aka_alerta_d
 or alternative set alerta address in config
 
 ```
-vi $HOME/.alerta.conf
+cat << EOF > ~/.alerta.conf
 [DEFAULT]
 endpoint = http://<EC2_PUBLIC_DNS>/api
+EOF
 
 ```
 
