@@ -57,7 +57,7 @@ Make the following changes to these files in the code you have cloned:
 Set the ssh keypair name in varibales.tf
 
 ```
-variable "ssh_key_name" { default = "YOUR_KEYPAIR_NAME" }
+variable "ssh_keypair_name" { default = "YOUR_KEYPAIR_NAME" }
 
 ```
 
@@ -66,15 +66,15 @@ If you need to set region, amis etc, in variables.tf, or use default, eu-west-1.
 NOTE: if you change ami id, make sure its ubuntu ami for this example to work.
 
 For ssh to work, do the following.  
-symlink or name your private ssh key pem file to my_aws_key.pem, I have the private key in ~/.aws dir.  ( This the private key part of your keypair name you're using in ssh_key_name variable above. )
+symlink or name your private ssh key pem file to my_aws_key.pem, I have the private key in ~/.aws dir.  ( This the private key part of your keypair name you're using in ssh_keypair_name variable above. )
 
 simplist is to just symlink it.  (or you can update key_path in variables.tf to set it to path of your .pem file)
 
 ```
 $ln -s ~/.aws/akarim_ssh.pem ~/.aws/my_aws_key.pem
 
-$grep key_path variables.tf 
-variable "key_path" { default = "~/.aws/my_aws_key.pem" }
+$grep private_key variables.tf 
+variable "private_key" { default = "~/.aws/my_aws_key.pem" }
 
 ```
 

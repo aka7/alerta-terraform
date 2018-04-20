@@ -59,13 +59,13 @@ resource "aws_instance" "alerta" {
     tags { Name     = "alertademo" }
     security_groups = ["ssh_alerta"]
     # key_name is your AWS keypair to allow you access
-    key_name        = "${var.ssh_key_name}"
+    key_name        = "${var.ssh_keypair_name}"
     user_data = "${data.template_file.user_data.rendered}"
 
     connection {
       type = "ssh"
       user = "ubuntu"
-      private_key = "${file("${var.key_path}")}"
+      private_key = "${file("${var.private_key}")}"
       timeout = "2m"
       agent = false
     }
