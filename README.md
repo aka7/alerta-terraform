@@ -25,7 +25,23 @@ Note: These examples deploy resources into your AWS account. Although all the re
 ## Now on your host (where you have installed Terraform)
 
 ### Step 1 - Setup your credentails for using aws
-  * set the credential sources. one way is to set it in .aws/credentials file, shown below.
+In order for Terraform to be able to make changes in your AWS account, you will need to set the AWS credentials for your user.
+You can do this two ways
+
+  * Setting as environment variables:
+  * Set details in in .aws/credentials file
+
+Both ways is show below.
+
+#### Setting as environment variables.
+
+```
+export AWS_ACCESS_KEY_ID=(your access key id)
+export AWS_SECRET_ACCESS_KEY=(your secret access key)
+export AWS_SECRET_ACCESS_KEY=(your secret access key)
+```
+
+#### Set in credentials file.
 
 ```
 cat ~/.aws/credentials
