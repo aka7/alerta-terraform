@@ -38,7 +38,6 @@ Both ways is show below.
 ```
 export AWS_ACCESS_KEY_ID=(your access key id)
 export AWS_SECRET_ACCESS_KEY=(your secret access key)
-export AWS_SECRET_ACCESS_KEY=(your secret access key)
 ```
 
 #### Set in credentials file.
@@ -46,8 +45,8 @@ export AWS_SECRET_ACCESS_KEY=(your secret access key)
 ```
 cat ~/.aws/credentials
 [default]
-aws_access_key_id = 
-aws_secret_access_key =
+aws_access_key_id = (your access key id)
+aws_secret_access_key = (your secret access key)
 ```
 It is recommended to keep your keys outside the git repo's so you dont commit the keys into git by mistake.
 
