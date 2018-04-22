@@ -78,12 +78,12 @@ variable "ssh_keypair_name" { default = "YOUR_KEYPAIR_NAME" }
 
 If you need to set region, amis etc, in variables.tf, or use default, eu-west-1.  
 
-NOTE: if you change ami id, make sure its ubuntu ami for this example to work.
+NOTE: if you change AMI id, make sure it's ubuntu AMI for this example to work.
 
 For ssh to work, do the following.  
 symlink or name your private ssh key pem file to my_aws_key.pem, I have the private key in ~/.aws dir.  ( This the private key part of your keypair name you're using in ssh_keypair_name variable above. )
 
-simplist is to just symlink it.  (or you can update key_path in variables.tf to set it to path of your .pem file)
+simplist is to just symlink it.  (or you can update private_key in variables.tf. set this to location of your ssh private key (.pem) file)
 
 ```
 $ln -s ~/.aws/akarim_ssh.pem ~/.aws/my_aws_key.pem
@@ -93,17 +93,15 @@ variable "private_key" { default = "~/.aws/my_aws_key.pem" }
 
 ```
 
-You can also add your own public key(s) in user_data file, alerta_data.conf, in section ssh_authorized_keys:, replace <ADDITONAL PUBKEYS> with your pubkey.
+You can also add your own public key(s) in user_data file, alerta_data.yml, in section ssh_authorized_keys:, replace <ADDITONAL PUBKEYS> with your pubkey.
 
-```
-vi alerta_data.conf 
 ....
 
 ssh_authorized_keys:
   - ssh-rsa <ADDITIONAL PUBKEYS>
 ```
 
-Change consul id to avoid clash, set the consul_id to be unque to you, to avoid clash with someone else running this same time as you.
+Change consul id to avoid clash, set the consul_id to be unque to you, to avoid clash with someone else running this example as same time as you.
 
 ```
 variable "consul_id" { default = "aka_alerta_demo" }
