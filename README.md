@@ -95,8 +95,7 @@ variable "private_key" { default = "~/.aws/my_aws_key.pem" }
 
 You can also add your own public key(s) in user_data file, alerta_data.yml, in section ssh_authorized_keys:, replace <ADDITONAL PUBKEYS> with your pubkey.
 
-....
-
+```
 ssh_authorized_keys:
   - ssh-rsa <ADDITIONAL PUBKEYS>
 ```
