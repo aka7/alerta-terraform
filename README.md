@@ -28,8 +28,8 @@ Note: These examples deploy resources into your AWS account. Although all the re
 In order for Terraform to be able to make changes in your AWS account, you will need to set the AWS credentials for your user.
 You can do this two ways
 
-  * Setting as environment variables:
-  * Set details in in .aws/credentials file
+  1. Set as environment variables:
+  2. Set details in in .aws/credentials file
 
 Both ways is show below.
 
