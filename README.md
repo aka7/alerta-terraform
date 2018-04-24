@@ -153,8 +153,7 @@ curl -XPOST http://${ALERTA_ENDPOINT}/api/alert \
 ```
 You should get a json reposnse back and alert should appear in alerta gui.
 
-#### Send alert using ALERT command-line tool
-Much easir with alerta CLI.
+#### Send alert using alerta command-line tool
 
 Download alerta command-line tool.
 
