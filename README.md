@@ -119,6 +119,43 @@ you can also go to demo.consul.io to view the key that has been created in consu
 ### Step 5 - Send test Alert to alerta
 To send alert to the newly created instance.
 
+#### Send alert using curl
+you can use curl, run the below curl command in a shell. (change the json data as required)
+```
+export ALERTA_ENDPOINT=$(curl -s https://demo.consul.io/v1/kv/aka_alerta_demo/monitor_server | python -c 'import sys, json; print json.load(sys.stdin)[0]["Value"]'|base64 --decode)
+
+curl -XPOST http://${ALERTA_ENDPOINT}/api/alert \
+-H 'Content-type: application/json' \
+-d '{
+      "attributes": {
+        "region": "EU"
+      },
+      "correlate": [
+        "HttpServerError",
+        "HttpServerOK"
+      ],
+      "environment": "Production",
+      "event": "HttpServerError",
+      "group": "Web",
+      "origin": "curl",
+      "resource": "web01",
+      "service": [
+        "example.com"
+      ],
+      "severity": "major",
+      "tags": [
+        "dc1"
+      ],
+      "text": "Site is down.",
+      "type": "exceptionAlert",
+      "value": "Bad Gateway (501)"
+    }'
+```
+You should get a json reposnse back and alert should appear in alerta gui.
+
+#### Send alert using ALERT command-line tool
+Much easir with alerta CLI.
+
 Download alerta command-line tool.
 
 ```
