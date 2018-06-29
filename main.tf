@@ -5,8 +5,9 @@
 # USE DEMO CONSUL SITE
 #
 provider "consul" {
-  address    = "demo.consul.io:80"
-  datacenter = "nyc3"
+  address    = "demo.consul.io:443"
+  scheme     = "https"
+  datacenter = "dc1"
 }
 
 # usr user_data to run post install configs, such as install and confgure alerta
